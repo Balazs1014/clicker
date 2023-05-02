@@ -17,12 +17,14 @@ private:
     std::mt19937 m_randomGenerator;
 
     void click();
+    bool dropCps();
     void findWindow();
     void handleToggleKeyPress();
 public:
     Autoclicker();
     ~Autoclicker();
-
+    int getCps();
+    void setCps(int value);
     void start();
     void stop();
     void setToggleKey(int toggleKey);

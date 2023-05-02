@@ -50,7 +50,12 @@ void UI::print(const std::string& text) const {
 }
 
 void UI::showMessageBox(const std::string& text) const {
-    MessageBox(NULL, (LPCWSTR)text.c_str(), L"[SW] Client", MB_OK);
+
+    // Convert the narrow character string to a wide character string
+    int size = MultiByteToWideChar(CP_UTF8, 0, text.c_str(), -1, nullptr, 0);
+    std::wstring wtext(size, 0);
+    MultiByteToWideChar(CP_UTF8, 0, text.c_str(), -1, &wtext[0], size);
+    MessageBox(NULL, (LPCWSTR)wtext.c_str(), L"[SW] Client", MB_OK);
 }
 
 void UI::clearConsole() const {

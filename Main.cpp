@@ -6,5 +6,10 @@
 int main() {
 	UI ui = UI();
 	ui.printLogo();
-	getchar();
+	Autoclicker clicker = Autoclicker();
+	clicker.setCps(ui.askForNumberInRange(1, 15));
+	ui.showMessageBox("Everything set ready?");
+	clicker.setToggleKey(VK_INSERT);
+	clicker.start();
+	ui.showMessageBox("Fucky wacky we broke out of loop");
 }
