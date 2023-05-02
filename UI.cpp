@@ -37,12 +37,12 @@ int UI::input() const {
 
 void UI::printLogo() {
     setConsoleColor(14);
-    std::cout << " _____  _    _ " << '\n';
-    std::cout << "/  ___|| |  | |" << '\n';
-    std::cout << "\ `--. | |  | |" << '\n';
-    std::cout << " `--. \| |/\| |" << '\n';
-    std::cout << "/\__/ /\  /\  /" << '\n';
-    std::cout << "\____/  \/  \/ " << '\n';
+    std::cout << "  _________      ____        __      __ " << '\n';
+    std::cout << " /   _____/     /  _ \\      /  \\    /  \\ " << '\n';
+    std::cout << " \\_____  \\      >  _ </\\    \\   \\/\\/   / " << '\n';
+    std::cout << " /        \\    /  <_\\ \\/     \\        /  " << '\n';
+    std::cout << "/_______  /    \\_____\\ \\      \\__/\\  /   " << '\n';
+    std::cout << "        \\/            \\/           \\/    " << '\n';
 }
 
 void UI::print(const std::string& text) const {
@@ -66,8 +66,8 @@ void UI::setConsoleColor(int colorCode) const {
     SetConsoleTextAttribute(hConsole, colorCode);
 }
 
-std::string UI::generateRandomTitle() const{
-    std::string title = "Console Title ";
+std::wstring UI::generateRandomTitle() const{
+    std::string title = "";
     const int len = 10;
     const std::string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     std::mt19937 gen(static_cast<unsigned int>(time(nullptr)));
@@ -75,5 +75,9 @@ std::string UI::generateRandomTitle() const{
     for (int i = 0; i < len; i++) {
         title += chars[dist(gen)];
     }
-    return title;
+    // Convert the narrow character string to a wide character string
+    int size = MultiByteToWideChar(CP_UTF8, 0, title.c_str(), -1, nullptr, 0);
+    std::wstring wtitle(size, 0);
+    MultiByteToWideChar(CP_UTF8, 0, title.c_str(), -1, &wtitle[0], size);
+    return wtitle;
 }

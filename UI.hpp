@@ -15,6 +15,6 @@ public:
     int askForNumberInRange(int min, int max) const;
 private:
     void setConsoleColor(int colorCode) const;
-    std::string generateRandomTitle() const;
+    std::wstring generateRandomTitle() const;
 };
 
