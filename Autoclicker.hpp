@@ -15,9 +15,14 @@ private:
     int m_cps;
     int m_toggleKey;
     std::mt19937 m_randomGenerator;
+    float delaymin;
+    float delaymax;
+    float delayclick;
+    float blatantdelay;
 
     void click();
     bool dropCps();
+    float generateRandomSleep(int min, int max);
     void findWindow();
     void handleToggleKeyPress();
 public:
