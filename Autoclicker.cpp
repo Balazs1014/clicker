@@ -4,7 +4,9 @@ Autoclicker::Autoclicker() : m_windowHandle(nullptr), m_cps(5), m_toggleKey(VK_I
     // Find the window with class name "LWJGL" (Minecraft always has one)
     m_windowHandle = FindWindowA("LWJGL", nullptr);
     if (m_windowHandle == nullptr) {
-        std::cout << "Error: Could not find window with class name \"LWJGL\"" << std::endl;
+        std::cout << "Error: Could not find Minecraft window. \nPlease open this program after Minecraft is open.\n\n" << std::endl;
+        Sleep(5000);
+        exit(EXIT_FAILURE);
     }
 }
 Autoclicker::~Autoclicker() {

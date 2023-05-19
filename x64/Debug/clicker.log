@@ -1,0 +1,14 @@
+﻿  Autoclicker.cpp
+C:\Users\turtl\Desktop\clicker\Autoclicker.cpp(30,53): warning C4244: 'argument': conversion from 'int' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\turtl\Desktop\clicker\Autoclicker.cpp(30,48): warning C4244: 'argument': conversion from 'int' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\turtl\Desktop\clicker\Autoclicker.cpp(44,76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\turtl\Desktop\clicker\Autoclicker.cpp(44,59): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  clicker.vcxproj -> C:\Users\turtl\Desktop\clicker\x64\Debug\clicker.exe
